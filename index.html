@@ -7,13 +7,7 @@
 
 <style>
 body {
-background-image: url(https://40.media.tumblr.com/bb6a51d57dd049bd27bb83650bea2614/tumblr_nq7oo7honL1uyy26yo1_1280.jpg);
--moz-background-size: cover;
--webkit-background-size: cover;
-background-size: cover;
-background-position: top center !important;
-background-repeat: no-repeat !important;
-background-attachment: fixed;
+background-color: #A8C8CA;
 font-family: 'Shrikhand', cursive;}
 
 .slider {
@@ -40,7 +34,7 @@ margin-right: auto;
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #19E0ED;
+    background: #5E6767;
     cursor: pointer;
 -webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;
 }
@@ -64,7 +58,7 @@ margin-right: auto;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #19E0ED;
+    background: #5E6767;
     cursor: pointer;
 -webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;
 }
@@ -80,7 +74,7 @@ margin-right: auto;
 }
 
 .slider::-moz-range-thumb:inactive {
-    background: #19E0ED;
+    background: #5E6767;
 -webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;
 }
 
@@ -91,7 +85,6 @@ color: white;
 
 #header {
 margin-top: 100px;
-background-image: url("code.jpg");
 color: white;
 text-align: center;
 font-size: 50px;
@@ -112,7 +105,7 @@ width: 30px;
 
 h2 {
 clear: both;
-padding-top: 20px;
+top:50%;
 }
 
 button {
@@ -125,13 +118,13 @@ border-radius: 5px;
 height: 55px;
 font-size: 28px;
 font-family: 'Shrikhand', cursive;
-color: #19E0ED;
+color: #5E6767;
 -webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;
 }
 
 button:hover{
 color: white;
-background: #19E0ED;
+background: #5E6767;
 -webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;
 }
 
@@ -163,23 +156,86 @@ background: #19E0ED;
 
 </form>
 
-<center>
-<p>mood #: <span id="grade">_</span></p>
-<p id="grade2"></p>
-</div></center
+<audio id="song1" source src="audio/lowE-lowH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song2" source src="audio/lowE-midH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song3" source src="audio/lowE-highH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song4" source src="audio/midE-lowH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song5" source src="audio/midE-midH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song6" source src="audio/midE-highH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song7" source src="audio/highE-lowH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song8" source src="audio/highE-midH.mp3" type="audio/mp3" preload="auto"></audio>
+<audio id="song9" source src="audio/highE-highH.mp3" type="audio/mp3" preload="auto"></audio>
 
 </body>
 
 <script>
+
 document.getElementById("form1").onsubmit=function() {
+
+song1.pause();
+song2.pause();
+song3.pause();
+song4.pause();
+song5.pause();
+song6.pause();
+song7.pause();
+song8.pause();
+song9.pause();
 
 var eslider = document.getElementById("energyslide");
 var hslider = document.getElementById("happyslide");
-	   
-	   
-	   result = parseInt(eslider.value) + parseInt(hslider.value);
-	   
-	document.getElementById("grade").innerHTML = result;
+	 
+var energy = parseInt(eslider.value);
+
+var happy = parseInt(hslider.value);
+
+var result = 1;
+
+var song = document.getElementById("song1");
+
+if ((energy == 1) && (happy == 1)) {
+	result = 11;
+	document.getElementById("song1").play();
+}
+else if ((energy == 1) && (happy == 2)) {
+	result = 12;
+	document.getElementById("song2").play();	
+}
+else if ((energy == 1) && (happy == 3)) {
+	result = 13;
+	document.getElementById("song3").play();
+}
+else if ((energy == 2) && (happy == 1)) {
+	result = 21;
+	document.getElementById("song4").play();
+}
+
+else if ((energy == 2 && happy == 2)) {
+	result = 22;
+	document.getElementById("song5").play();
+}
+
+else if ((energy == 2) && (happy == 3)) {
+	result = 23;
+	document.getElementById("song6").play();	
+}
+
+else if ((energy == 3) && (happy == 1)) {
+	result = 31;
+	document.getElementById("song7").play();	
+}
+else if ((energy == 3) && (happy == 2)) {
+	result = 32;
+	document.getElementById("song8").play();	
+}
+else if ((energy == 3) && (happy == 3)) {
+	result = 33;
+	document.getElementById("song9").play();	
+}
+else {
+return false;
+}
+
 	   
 
 
